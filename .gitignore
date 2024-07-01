@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+#xcode whatnot
+xcuserdata
+DerivedData
+
+#trash
+.DS_Store
