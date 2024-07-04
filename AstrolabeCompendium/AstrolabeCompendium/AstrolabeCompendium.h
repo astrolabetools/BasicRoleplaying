@@ -129,16 +129,17 @@ ASTROLABE_EXTERN NSImage * __nullable
 //      NSAttributedString, NSImage, NSDictionary and NSArray and mutable variants thereof. The keys are all NSStrings.
 //      Above this level, all objects are dictionaries.
 //
-//      If the object is an NSDictionary, it shall also have a <template> entry which enumerates what things will be found 
-//      in the dictionary object. Example: A common subdictionary is one called @"Modifiers"," which will contain zero or
-//      more NSString : NSString pairs in the format <variable name> : <expression>. For example: @"STR" : "STR+1", which
-//      is identical to the operation STR = STR + 1. (Think of the colon as an assignment operator.) If a <template> dictionary
-//      is present at this level, it shall have within it a <ToolTips> member that provides human readable help for the object.
+//      If the object is an NSDictionary, it shall also have a corresponding subdictionary entry in the template dictionary
+//      associated with the parent, which enumerates what things will be found in tha dictionary object. 
+//      Example: A common subdictionary is one called @"Modifiers"," which will contain zero or more NSString : NSString pairs 
+//      in the format <variable name> : <expression>. For example: @"STR" : "STR+1", which is identical to the operation 
+//      STR = STR + 1. (Think of the colon as an assignment operator.) If a <template> dictionary is present at this level, it 
+//      shall have within it a <ToolTips> member that provides human readable help for the object.
 //
 //      If the template object specifies that a value shall be a NSString, NSNumber, NSDate, NSAttributedString, NSImage, or
-//      NSDictionary, the object may either be of that type or a NSArray of that type. This is occasionally necessary for things
-//      like shotgun damage or energy armor defense values, where a set of values is indicated by the rules rather than a single
-//      expression.
+//      NSDictionary, the object may either be of that type or a NSArray containing that type. This is occasionally necessary for 
+//      things like shotgun damage or energy armor defense values, where a set of values is indicated by the rules rather than a 
+//      single expression.
 //
 //  File format
 //  ===========
