@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B4A9CAD2C33504800712E84 /* AstrolabeCompendium.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4A9CAC2C334EE200712E84 /* AstrolabeCompendium.m */; };
+		3B4A9CAE2C336BB600712E84 /* AstrolabeCompendium.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B4A9CAB2C334C9100712E84 /* AstrolabeCompendium.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B8CD1582C35FD1000A2AF40 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8CD1572C35FD1000A2AF40 /* Tests.m */; };
+		3B8CD1592C35FD1000A2AF40 /* libAstrolabeCompendium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A9CA42C334B6E00712E84 /* libAstrolabeCompendium.a */; };
+		3B8CD1612C35FEF300A2AF40 /* KiddiePool.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3B8CD1602C35FEE600A2AF40 /* KiddiePool.jpeg */; };
+		3B8CD1622C35FEF600A2AF40 /* Items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B8CD15F2C35FEE600A2AF40 /* Items.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B8CD15A2C35FD1000A2AF40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4A9C9C2C334B6E00712E84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B4A9CA32C334B6E00712E84;
+			remoteInfo = AstrolabeCompendium;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B4A9CA42C334B6E00712E84 /* libAstrolabeCompendium.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAstrolabeCompendium.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4A9CAB2C334C9100712E84 /* AstrolabeCompendium.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AstrolabeCompendium.h; sourceTree = "<group>"; };
+		3B4A9CAC2C334EE200712E84 /* AstrolabeCompendium.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AstrolabeCompendium.m; sourceTree = "<group>"; };
+		3B8CD1552C35FD1000A2AF40 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8CD1572C35FD1000A2AF40 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		3B8CD15F2C35FEE600A2AF40 /* Items.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Items.plist; sourceTree = "<group>"; };
+		3B8CD1602C35FEE600A2AF40 /* KiddiePool.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = KiddiePool.jpeg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B4A9CA22C334B6E00712E84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8CD1522C35FD1000A2AF40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8CD1592C35FD1000A2AF40 /* libAstrolabeCompendium.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B4A9C9B2C334B6E00712E84 = {
+			isa = PBXGroup;
+			children = (
+				3B4A9CAB2C334C9100712E84 /* AstrolabeCompendium.h */,
+				3B4A9CAC2C334EE200712E84 /* AstrolabeCompendium.m */,
+				3B8CD1562C35FD1000A2AF40 /* Tests */,
+				3B4A9CA52C334B6E00712E84 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B4A9CA52C334B6E00712E84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B4A9CA42C334B6E00712E84 /* libAstrolabeCompendium.a */,
+				3B8CD1552C35FD1000A2AF40 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B8CD1562C35FD1000A2AF40 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3B8CD15F2C35FEE600A2AF40 /* Items.plist */,
+				3B8CD1602C35FEE600A2AF40 /* KiddiePool.jpeg */,
+				3B8CD1572C35FD1000A2AF40 /* Tests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3B4A9CA02C334B6E00712E84 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B4A9CAE2C336BB600712E84 /* AstrolabeCompendium.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3B4A9CA32C334B6E00712E84 /* AstrolabeCompendium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B4A9CA82C334B6E00712E84 /* Build configuration list for PBXNativeTarget "AstrolabeCompendium" */;
+			buildPhases = (
+				3B4A9CA02C334B6E00712E84 /* Headers */,
+				3B4A9CA12C334B6E00712E84 /* Sources */,
+				3B4A9CA22C334B6E00712E84 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AstrolabeCompendium;
+			productName = AstrolabeCompendium;
+			productReference = 3B4A9CA42C334B6E00712E84 /* libAstrolabeCompendium.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3B8CD1542C35FD1000A2AF40 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B8CD15E2C35FD1000A2AF40 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				3B8CD1512C35FD1000A2AF40 /* Sources */,
+				3B8CD1522C35FD1000A2AF40 /* Frameworks */,
+				3B8CD1532C35FD1000A2AF40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B8CD15B2C35FD1000A2AF40 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 3B8CD1552C35FD1000A2AF40 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B4A9C9C2C334B6E00712E84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					3B4A9CA32C334B6E00712E84 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					3B8CD1542C35FD1000A2AF40 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 3B4A9C9F2C334B6E00712E84 /* Build configuration list for PBXProject "AstrolabeCompendium" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B4A9C9B2C334B6E00712E84;
+			productRefGroup = 3B4A9CA52C334B6E00712E84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B4A9CA32C334B6E00712E84 /* AstrolabeCompendium */,
+				3B8CD1542C35FD1000A2AF40 /* Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B8CD1532C35FD1000A2AF40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8CD1612C35FEF300A2AF40 /* KiddiePool.jpeg in Resources */,
+				3B8CD1622C35FEF600A2AF40 /* Items.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B4A9CA12C334B6E00712E84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B4A9CAD2C33504800712E84 /* AstrolabeCompendium.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B8CD1512C35FD1000A2AF40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8CD1582C35FD1000A2AF40 /* Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B8CD15B2C35FD1000A2AF40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B4A9CA32C334B6E00712E84 /* AstrolabeCompendium */;
+			targetProxy = 3B8CD15A2C35FD1000A2AF40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3B4A9CA62C334B6E00712E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = avx2;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos tvos watchos visionos";
+			};
+			name = Debug;
+		};
+		3B4A9CA72C334B6E00712E84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = avx2;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos tvos watchos visionos";
+			};
+			name = Release;
+		};
+		3B4A9CA92C334B6E00712E84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5936CUMS42;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3B4A9CAA2C334B6E00712E84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5936CUMS42;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3B8CD15C2C35FD1000A2AF40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65MQA34U6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.astrolabetools.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Debug;
+		};
+		3B8CD15D2C35FD1000A2AF40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65MQA34U6L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.astrolabetools.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B4A9C9F2C334B6E00712E84 /* Build configuration list for PBXProject "AstrolabeCompendium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4A9CA62C334B6E00712E84 /* Debug */,
+				3B4A9CA72C334B6E00712E84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B4A9CA82C334B6E00712E84 /* Build configuration list for PBXNativeTarget "AstrolabeCompendium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B4A9CA92C334B6E00712E84 /* Debug */,
+				3B4A9CAA2C334B6E00712E84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B8CD15E2C35FD1000A2AF40 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B8CD15C2C35FD1000A2AF40 /* Debug */,
+				3B8CD15D2C35FD1000A2AF40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B4A9C9C2C334B6E00712E84 /* Project object */;
+}

@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Arrows</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.025</string>
+		<key>Description</key>
+		<string>A projectile designed to be fired from a bow</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Quantity</key>
+		<integer>20</integer>
+		<key>Bonuses</key>
+		<dict/>
+	</dict>
+	<key>Bag, Doctor&apos;s</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Description</key>
+		<string>A traditional doctors bag includes a setting-appropriate assortment of pills and antibiotics, a stethoscope, light, a prescription pad, and various medical implements and tools for on-site diagnosis and emergency medical treatment. A doctor’s bag is used with the First Aid skill, but can be used for Medicine skill rolls depending on the procedure. A doctor’s bag is expensive.</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Bolts</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.025</string>
+		<key>Description</key>
+		<string>A projectile designed to be fired from a crossbow</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Quantity</key>
+		<integer>20</integer>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Belt</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.1</string>
+		<key>Description</key>
+		<string>A strap of cord, leather or reinforced cloth worn around the waist, typically to hold up pants or give other clothing such as a dress or robe some shape. Belts may also be used to support a variety of pouches or devices for ready access. </string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Belt, Ammo</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.5</string>
+		<key>Description</key>
+		<string>A belt with special loops sewn in to hold ammunition, typically for pistols, revolvers or rifles.  May store up to 50 rounds. Larger rounds might be stored on a bandolier, which is worn over one shoulder and around the chest.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Storage</key>
+		<real>0.5</real>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Belt, Storage</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.5</string>
+		<key>Description</key>
+		<string>A belt with many pockets attached, suitable for storing a diversity of small items.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Storage</key>
+		<real>0.5</real>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Backpack, Student</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A modestly sized back worn on the back, with shoulder straps. Can store 1-3 SIZ worth of stuff. </string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Storage</key>
+		<integer>3</integer>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Backpack, Hikers&apos; / Traveling</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A large pack worn on the back, with belt used to take the increased weight of the pack and shoulder straps to keep the pack close to the center of mass. Can store 4-6 SIZ worth of stuff. </string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+		<key>Storage</key>
+		<integer>6</integer>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Bedroll / Sleeping Bag</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A sleeping bag or blanket intended to keep the user warm in the cold, especially at night</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Boots</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.2</string>
+		<key>Description</key>
+		<string>Toughened coverings worn on the feet, often rising over the ankle to provide better support on rough ground or under heavy loads.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Book, Hardcover</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+		<key>Description</key>
+		<string>A mass market hardbound book</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Book, Hardened Grimoire</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>4</string>
+		<key>Value</key>
+		<string>Expensive or Priceless, depending on content</string>
+		<key>Description</key>
+		<string>A book built to survive the centuries, possibly with a metal-bound cover or for military use</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Book, Paperback</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Description</key>
+		<string>A mass market paperback book</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Book, Quality Leather-bound</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Value</key>
+		<string>Average or Expensive</string>
+		<key>Description</key>
+		<string>A quality bound book with stitched pages and sturdy paper</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Bullets, Rifle</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.01</string>
+		<key>Description</key>
+		<string>Bullets designed to be used with a rifle</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Quantity</key>
+		<integer>50</integer>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Bullets, handgun</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.01</string>
+		<key>Description</key>
+		<string>Bullets designed to be used with a revolver</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Default Quantity</key>
+		<integer>50</integer>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Clothing, Common</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A common set of clothing styled appropriate to a period and gender. The clothing may have pockets for extra storage of small items.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Clothing, Noble</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A nicely made set of clothing styled appropriate to a period and gender, typically with extra flourishes, fabric and decoration to signify wealth. The clothing may have pockets for extra storage of small items.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Computer, Desktop</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>4</string>
+		<key>Description</key>
+		<string>Depending on the setting, a computer is either a simple (recalls information when queried and performs simple commands) or complex (possessing artificial intelligence or an approximation of sentience) tool that can be used along with other skills such as Appraise, Art, Gaming, Knowledge, Science, Teach, and especially Research. Any skill that benefits from a wide and searchable base of knowledge or near-instant communication with others in the field can benefit from using a computer. The programs contained or accessible and relative ease of use allow a bonus of up to +20% if the computer is suitable for the skill being used; an average computer setup offers no bonus; and an inferior or inefficient computer setup can penalize a skill by up to –20%. If you and your gamemaster wish for the computer to have more capability than a period-appropriate computer, create it as a super-powered gadget with INT (page 162).</string>
+		<key>Value</key>
+		<string>Expensive or Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Computer, Laptop</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Description</key>
+		<string>Depending on the setting, a computer is either a simple (recalls information when queried and performs simple commands) or complex (possessing artificial intelligence or an approximation of sentience) tool that can be used along with other skills such as Appraise, Art, Gaming, Knowledge, Science, Teach, and especially Research. Any skill that benefits from a wide and searchable base of knowledge or near-instant communication with others in the field can benefit from using a computer. The programs contained or accessible and relative ease of use allow a bonus of up to +20% if the computer is suitable for the skill being used; an average computer setup offers no bonus; and an inferior or inefficient computer setup can penalize a skill by up to –20%. If you and your gamemaster wish for the computer to have more capability than a period-appropriate computer, create it as a super powered gadget with INT (page 162).</string>
+		<key>Value</key>
+		<string>Expensive or Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Computer, tablet</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>Depending on the setting, a computer is either a simple (recalls information when queried and performs simple commands) or complex (possessing artificial intelligence or an approximation of sentience) tool that can be used along with other skills such as Appraise, Art, Gaming, Knowledge, Science, Teach, and especially Research. Any skill that benefits from a wide and searchable base of knowledge or near-instant communication with others in the field can benefit from using a computer. The programs contained or accessible and relative ease of use allow a bonus of up to +20% if the computer is suitable for the skill being used; an average computer setup offers no bonus; and an inferior or inefficient computer setup can penalize a skill by up to –20%. If you and your gamemaster wish for the computer to have more capability than a period-appropriate computer, create it as a super powered gadget with INT (page 162).</string>
+		<key>Value</key>
+		<string>Expensive or Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Computer, phone / calculator</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Description</key>
+		<string>Depending on the setting, a computer is either a simple (recalls information when queried and performs simple commands) or complex (possessing artificial intelligence or an approximation of sentience) tool that can be used along with other skills such as Appraise, Art, Gaming, Knowledge, Science, Teach, and especially Research. Any skill that benefits from a wide and searchable base of knowledge or near-instant communication with others in the field can benefit from using a computer. The programs contained or accessible and relative ease of use allow a bonus of up to +20% if the computer is suitable for the skill being used; an average computer setup offers no bonus; and an inferior or inefficient computer setup can penalize a skill by up to –20%. If you and your gamemaster wish for the computer to have more capability than a period-appropriate computer, create it as a super powered gadget with INT (page 162).</string>
+		<key>Value</key>
+		<string>Expensive or Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Doc, Auto-</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>8</string>
+		<key>Description</key>
+		<string>A fully automated medical treatment system complete with complex diagnostic abilities capable of recognizing and implementing treatment for almost any known medical condition. Auto-docs may include robotic components capable of maneuvering patients, or can be the size of a room, extruding limbs and other manipulators to interact with the patient on a central bed. An auto- doc has 100% skill in Medicine and First Aid, and a successful roll restores double the number of hit points to the patient, with recovery times cut in half. An auto-doc is expensive or priceless, while treatment in one ranges from free to priceless.</string>
+		<key>Value</key>
+		<string>Expensive or Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Fire Starter</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.1</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Description</key>
+		<string>A small canister containing a striker and fuel for starting a fire.  This could be a flint and tinderbox, a waterproof box of matches, a handheld lighter, or a laser tool depending on age</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Flashlight</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.5</string>
+		<key>Description</key>
+		<string>A small handheld light</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Hat</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.1</string>
+		<key>Description</key>
+		<string>A covering worn on the head, often to reduce sun exposure.  Taste negotiable.</string>
+		<key>Value</key>
+		<string>Inexpensive to Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Keys</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Description</key>
+		<string>A key ring with some keys</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Lantern</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A small handheld light that uses batteries or burns lamp oil. These may be hooded to reduce / direct illumination.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Artists</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>3</string>
+		<key>Description</key>
+		<string>By medium (paints, computer, holo-imager, spray paint, typewriter, etc.).</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Chemistry</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>3</string>
+		<key>Description</key>
+		<string>A wide selection of small portions of chemicals and substances, with a microscope and means of mixing and storing compounds. Usually only an educational tool, it can be utilized with the Science (Chemistry) skill for basic tasks. Cheap and readily available to students or anyone else interested.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Climbing</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Description</key>
+		<string>rope, pitons, harness, chalk, helmet, crampons, etc.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Criminology</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Description</key>
+		<string>Used by forensics labs and detectives, a criminology kit contains fingerprint detection methods, measuring devices, rubber gloves, collection bags and bottles for storage of evidence, magnifying glasses, appropriate chemicals and sprays, minor tools, black-light and normal flashlights, and other means of detecting traces of criminal activity. A criminology kit is expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Disguise</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Value</key>
+		<string>Cheap to Expensive</string>
+		<key>Description</key>
+		<string>A collection of skin dyes and colors, makeup, and other means to change one’s appearance, a disguise kit is usually assembled by the user to be of maximum use for their physical features and/ or gender. A disguise kit may include wigs, false teeth, false facial hair, hair dyes and other styling tools, scissors, a mirror, false contact lenses or glasses, and even pieces of wardrobe. More sophisticated kits can include prosthetics to alter facial features. A disguise kit can also be general-purpose, but such a kit is not usually as effective. One can be assembled out of commercially-available items for cheap to average cost, or a high-quality one can be expensive.</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, First-aid</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A standard first aid kit includes setting-appropriate equivalents of clean (or sterile) bandages, rubber gloves, minor ointments, pills for minor illnesses or infections, eyewash, poison or venom treatment, and small tools such as tweezers, scissors, or even a small scalpel. Larger kits have a larger variety of the above, more various medicines, and may come with a small first aid manual. A first aid kit is used with the First Aid skill, and is usually cheap.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Fishing</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+		<key>Description</key>
+		<string>One might think that just a fishing rod is needed, but not so! As any sporting goods salesman will happily tell you, a properly equipped fisherman will also have a net, pliers, an assortment of hooks and lures, something to hold the catch, replacement line and possibly even bait.</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Gaming</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+		<key>Description</key>
+		<string>A small bag or pouch of items needed for gaming activities. Might include playing cards, dice, a rules manual, tokens or a game board. A set of cards, predrilled wooden plank and pegs would be a cribbage gaming kit.</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Herbalist</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Description</key>
+		<string>Used by shamans, physikers, midwives, and leeches, this is an assortment of cloth for bandages, poultices, thread and a sharp needle (bone or metal), and some other oddments including herbal remedies of various levels of efficacy. Such a kit is cheap in most settings, and is often gathered by the owner using the Knowledge (Herbalism) skill.</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Medi-</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Description</key>
+		<string>A highly advanced set of equipment, this includes dermal regenerators, hypo-sprays, instant blood clotting agents, a simple medical scanner, universal anti-toxins and antidotes, stimulation shots, synthetic skin spray, spray-on casts and other forms of instant wound sealing. Usually a medi-kit has a small medical computer or reader capable of describing thousands of treatments and diagnosing simple injuries. Use of a medi-kit makes all First Aid attempts Easy, and doubles the number of hit points a successful First Aid roll heals. If it is available in your setting, a medi-kit is expensive.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Navigator&apos;s</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>maps / charts, astrolabe, compass, GPS, as appropriate</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Repair (various)</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A small collection of tools and materials appropriate for minor field repairs of one class of object. For example, a computer repair kit might include several screwdrivers, chip puller, anti-static wrist strap, can of air and a small flashlight. An auto repair kit might include adjustable pliers, fuses, a replacement fuel filter, flares, screwdriver, ratchet set and a tire patch kit. An armor repair kit might include oil, a tool for fastening rivets, a small hammer, and a supply of wire and small armored plates. See Repair skill, p 50.</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Priest&apos;s</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A religious text, religious symbol, rosaries, prayer mat, and other material appropriate to religious devotion. May also include pen and paper, body ink, mind altering substances or other items appropriate to for proper religious devotion or function within a religious organization.</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Surgery</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A set of surgical tools packaged and sterile, ready for use. This contains several rubber gloves, dressings, antiseptics, sutures, etc., and is essential for any involved surgery or use of the Medicine skill involving surgery. Any hospital should have multiples of everything that goes into a surgery kit. A surgery kit is expensive.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Trauma</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Description</key>
+		<string>A specialized collection of medical supplies to deal with immediate trauma. Often intended for battlefield use, a trauma kit has supplies such as adrenalin shots, antitoxins, other remedies to ward against chemical agents, emergency medical supplies to immediately deal with large and open wounds, a portable defibrillator, and a limited set of surgical tools. A trauma kit is expensive.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Kit, Thievery</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Description</key>
+		<string>A specialized collection of thieves&apos; tools, including elements of the climbing kit, lock picks, small saws / files, and a collection of items helpful for discouraging pursuit such as caltrops or ball bearings. May also include other equipment such as stethoscope or night vision gear as appropriate to age. </string>
+		<key>Value</key>
+		<string>Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Lock picks</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Description</key>
+		<string>These can range from a few single picks to a more sophisticated set with stethoscope, drills, and a variety of tools and implements for opening the most complex and challenging locks. These can range from cheap to expensive.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Necklace</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Description</key>
+		<string>An item of jewelry typically consisting of a chain and pendant worn about the neck. Imaginative tales tell of magic necklaces that give great powers. More commonly they may symbolize attachment, a religious affiliation or wealth.</string>
+		<key>Value</key>
+		<string>Inexpensive to Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Pole, 10&apos;</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>3</string>
+		<key>Description</key>
+		<string>A 3 meter pole made of wood, fiberglass or advanced material thin enough to grip in the hands. Preferred by tight-rope walkers everywhere!  </string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Quiver</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.5</string>
+		<key>Description</key>
+		<string>A specialized container worn on the back or hip designed to hold arrows or crossbow bolts. Can hold 20 projectiles.</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Storage</key>
+		<real>0.5</real>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Ring</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Description</key>
+		<string>A typically metal band worn on the fingers or toes, commonly for decorative purposes. Imaginative tales tell of magic rings that give great powers.</string>
+		<key>Value</key>
+		<string>Inexpensive to Priceless</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Rope, 50&apos;</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>2</string>
+		<key>Description</key>
+		<string>15 meters of rope strong enough to hold up a large man. Depending on period, this may be made of hair, plant fibers, cotton, or synthetic fibers. Specialty ropes made from silk, kevlar or other high tensile strength materials will be SIZ = 1 and Expensive.</string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Silencer (Suppressor)</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.2</string>
+		<key>Description</key>
+		<string>A silencer is a long tube filled with baffles, attached to the barrel of a firearm, which muffles the sound of shots fired. This slows the projectile’s velocity, halving its base range. A silencer is usually made to order for a specific type of firearm, and usually wears out after D100+10 shots have been fired through it. A silencer cannot be attached to a shotgun or heavy machine gun, but can be used for a light or medium machine gun. In most settings they exist in, silencers are expensive and restricted.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Bonuses</key>
+		<dict>
+			<key>Range</key>
+			<string>Range * 2</string>
+		</dict>
+	</dict>
+	<key>Sight, Laser</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.2</string>
+		<key>Description</key>
+		<string>These attach to a firearm and allow your character to effectively double the base range. Laser sights quadruple the base range. When combined with Aimed Attacks (page 140), either can be quite effective. These are of average value, though precision scopes may be more expensive.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Bonuses</key>
+		<dict>
+			<key>Range</key>
+			<string>Range / 4</string>
+		</dict>
+	</dict>
+	<key>Sight, Telescopic</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.2</string>
+		<key>Description</key>
+		<string>These attach to a firearm and allow your character to effectively double the base range. Laser sights quadruple the base range. When combined with Aimed Attacks (page 140), either can be quite effective. These are of average value, though precision scopes may be more expensive.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Bonuses</key>
+		<dict>
+			<key>Range</key>
+			<string>Range / 2</string>
+		</dict>
+	</dict>
+	<key>Shells, Shotgun</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.05</string>
+		<key>Description</key>
+		<string>Shells designed to be used with a shotgun</string>
+		<key>Value</key>
+		<string>Cheap</string>
+		<key>Default Quantity</key>
+		<integer>10</integer>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Shoes</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.1</string>
+		<key>Description</key>
+		<string>Light duty foot coverings intended to protect the feet from sharp surfaces. Highly fashionable shoes are expensive.</string>
+		<key>Value</key>
+		<string>Cheap to Expensive</string>
+		<key>Bonuses</key>
+		<dict>
+			<key>Range</key>
+			<string>Range / 2</string>
+		</dict>
+	</dict>
+	<key>Stabilizer, Bow</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.2</string>
+		<key>Description</key>
+		<string>A bow accessory that adds to the stability of the weapon through recoil compensation, shock absorption, etc. These might add +5% or more to subsequent shots after the first in a round.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Bonuses</key>
+		<dict>
+			<key>Missile Weapon (Bow)</key>
+			<string>+5</string>
+		</dict>
+	</dict>
+	<key>Stabilizer, Firearm</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0.2</string>
+		<key>Description</key>
+		<string>A firearm accessory that adds to the stability of the weapon through recoil compensation, shock absorption, etc. These might add +5% or more to subsequent shots after the first in a round.</string>
+		<key>Value</key>
+		<string>Expensive</string>
+		<key>Bonuses</key>
+		<dict>
+			<key>Missile Weapon (Rifle)</key>
+			<string>+5</string>
+			<key>Energy Weapon (Rifle)</key>
+			<string>+5</string>
+		</dict>
+	</dict>
+	<key>Tent</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>1</string>
+		<key>Description</key>
+		<string>A portable temporary cloth structure designed to house 1-8 people. SIZ is max occupants / 2. </string>
+		<key>Value</key>
+		<string>Inexpensive</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>Wallet / Purse</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string>0</string>
+		<key>Description</key>
+		<string>Small storage for currency, identification and perhaps some tiny personal items</string>
+		<key>Value</key>
+		<string>Cheap</string>
+        <key>Bonuses</key>
+        <dict/>
+	</dict>
+	<key>&lt;template&gt;</key>
+	<dict>
+		<key>ENC/SIZ</key>
+		<string></string>
+		<key>Value</key>
+		<string></string>
+		<key>Description</key>
+		<string></string>
+		<key>Default Quantity</key>
+		<integer>1</integer>
+		<key>Storage</key>
+		<integer>0</integer>
+        <key>Bonuses</key>
+        <dict/>
+		<key>&lt;ToolTips&gt;</key>
+		<dict>
+			<key>ENC/SIZ</key>
+			<string>The encumbrance (ENC) of an item. See Comparative Sizes p 189. </string>
+			<key>Value</key>
+			<string>{Cheap, Inexpensive, Average, Expensive, Priceless}</string>
+			<key>Description</key>
+			<string>A short description of the item and what it does</string>
+			<key>Default Quantity</key>
+			<string>Some items are typically sold in groups, for example arrows or eggs</string>
+			<key>Storage</key>
+			<string>The SIZ of storage within the item</string>
+			<key>Bonuses</key>
+			<string>A list of effects obtained by using or equipping the item, such as {&quot;DEX&quot; : &quot;+1&quot;, &quot;Missile Weapons (Lasso)&quot;:&quot;+10&quot;}</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
