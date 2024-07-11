@@ -62,6 +62,10 @@ ASTROLABE_EXTERN NSImage * __nullable
 ASTROLABE_EXTERN NSImage * __nullable
     AstrolabeCompendiumCreateImageFromData( NSData * __nullable data) NS_RETURNS_RETAINED;
 
+/*! @abstract Returns true of a dictionary key contains metadata such as a <template> */
+ASTROLABE_EXTERN BOOL
+    KeyIsMetadata(id __nullable key);
+
 #endif /* __objc__ */
 
 // Dictionary format

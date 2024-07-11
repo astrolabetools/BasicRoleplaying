@@ -41,6 +41,16 @@ static NSString * kToolTipsKey = @"<ToolTips>";
 - (nullable instancetype) initWithData: (NSData*__nonnull) data;
 @end
 
+BOOL KeyIsMetadata(id __nullable key)
+{
+    if( NO == [key isKindOfClass: NSString.class] )
+        return NO;
+    
+    NSString * __nonnull k = (NSString *) key;
+    return [k hasPrefix: @"<"] && [k hasSuffix: @">"];
+}
+
+
 @implementation MechanusImage
 @synthesize data;
 
