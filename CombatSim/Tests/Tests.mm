@@ -6,7 +6,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Table.h"
+#import "Table.hpp"
 
 @interface Tests : XCTestCase
 
@@ -22,9 +22,20 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
+const char * GetCorrectEntry( Table<const char*, 100>::Entry * table, unsigned long count, unsigned long index)
+{
+    for( long i = count -1; i >= 0; i--)
+    {
+        if( table[i].startIndex <= index)
+            return table[i].value;
+    }
+    
+    return NULL;
+}
+
 - (void)testTable {
     
-    Table<const char*>::Entry data[] =
+    Table<const char*, 100>::Entry data[] =
     {
         {01, "Adaptability"},
         {04, "Allergy"},
@@ -57,9 +68,86 @@
         {87, "Venom90 Wings"},
         {91, "Gamemaster or Player Choice"},
     };
+    unsigned long count = sizeof(data) / sizeof(data[0]);
     
-    Table table(
+    for( unsigned long tableSize = 1; tableSize <= count; tableSize ++)
+    {
+        Table<const char*, 100> table(data, tableSize);
+        
+        for( unsigned long i = 1; i <= 100; i++)
+        {
+            const char * test = table.GetValue(i);
+            const char * correct = GetCorrectEntry(data, count, i);
+            
+            if(strcmp(test, correct))
+            {
+                test = table.GetValue(i);
+                correct = GetCorrectEntry(data, tableSize, i);
+            }
+            XCTAssert(0 == strcmp(test, correct));
+        }
+    }
+}
+
+-(void) testCombatResult
+{
+    static const CombatResult kExpectedResult[5][5] =
+    {
+        {   // attacker critical
+            CombatResult(SkillResultFailure,  false, 0, false, 0),  // Defender parries or dodges damage, no other result.
+            CombatResult(SkillResultSuccess,  false, 0, false, 2),  // Attack partially deflected or dodged and achieves a success. Attacker strikes defender and rolls damage normally. Defender’s armor value subtracted from damage. Parrying weapon or shield takes 2 points of damage.*
+            CombatResult(SkillResultSpecial,  false, 0, false, 4),  // Attack marginally deflected and achieves a special success. Attack does full damage† plus normal damage modifier and appropriate special result. Defender’s armor value subtracted from damage. Parrying weapon or shield takes 4 points of damage.*
+            CombatResult(SkillResultCritical, false, 0, false, 0),  // Attack achieves a critical success. Attack does full damage† plus normal damage modifier (or attacker may choose a special success instead). Defender’s armor value is bypassed.
+            CombatResult(SkillResultCritical, false, 0, true,  0),  // Attack achieves a critical success. Attack does full damage** plus normal damage modifier (or attacker may choose a special success instead). Defender’s armor value does not apply. Defender rolls on the appropriate fumble table.
+        },
+        {   // attacker special
+            CombatResult(SkillResultFailure, false, 1, false, 0),   // Defender parries or dodges attack; no other result. If attack is parried, attacking weapon takes 1 point of damage.*
+            CombatResult(SkillResultFailure, false, 0, false, 0),   // Defender parries or dodges attack, no other result.
+            CombatResult(SkillResultSuccess, false, 0, false, 2),   // Attack partially parried or dodged and achieves a normal success. Defender’s armor value subtracted from damage. Parrying weapon or shield takes 2 points of damage.*
+            CombatResult(SkillResultSpecial, false, 0, false, 0),   // Attack achieves a special success. Attack does full damage** plus normal damage modifier and appropriate special result. Defender’s armor value subtracted from damage.
+            CombatResult(SkillResultSpecial, false, 0, true,  0),   // Attack achieves a special success. Attack does full damage** plus normal damage modifier and appropriate special result. Defender’s armor value subtracted from damage. Defender rolls on the appropriate fumble table.
+        },
+        {   // attacker success
+            CombatResult(SkillResultFailure, false, 2, false, 0),   //  Defender blocks or dodges damage; no other result. If parried in melee combat, attacker’s weapon takes 2 points of damage.*
+            CombatResult(SkillResultFailure, false, 1, false, 0),   //  Defender blocks or dodges damage; no other result. If parried in melee combat, attacker’s weapon takes 1 point of damage.*
+            CombatResult(SkillResultFailure, false, 0, false, 0),   //  Defender blocks or dodges damage, no other result.
+            CombatResult(SkillResultSuccess, false, 0, false, 0),   //  Attack strikes defender and rolls damage normally. Defender’s armor value subtracted from damage.
+            CombatResult(SkillResultSuccess, false, 0, true,  0),   //  Attack strikes defender and rolls damage normally. Defender’s armor value subtracted from damage. Defender rolls on the appropriate fumble table.
+        },
+        {   // attacker failure
+            CombatResult(SkillResultFailure, false, 0, false, 0),   // No damage; no effect.
+            CombatResult(SkillResultFailure, false, 0, false, 0),   // No damage; no effect.
+            CombatResult(SkillResultFailure, false, 0, false, 0),   // No damage; no effect.
+            CombatResult(SkillResultFailure, false, 0, false, 0),   // No damage; no effect.
+            CombatResult(SkillResultFailure, false, 0, false, 0),   // No damage; no effect.
+        },
+        {   // attacker fumble
+            CombatResult(SkillResultFumble, true, 0, false, 0),    // Attack misses completely and attacker rolls on the appropriate fumble table. Defender unharmed.
+            CombatResult(SkillResultFumble, true, 0, false, 0),    // Attack misses completely and attacker rolls on the appropriate fumble table. Defender unharmed.
+            CombatResult(SkillResultFumble, true, 0, false, 0),    // Attack misses completely and attacker rolls on the appropriate fumble table. Defender unharmed.
+            CombatResult(SkillResultFumble, true, 0, false, 0),    // Attack misses completely and attacker rolls on the appropriate fumble table. Defender unharmed.
+            CombatResult(SkillResultFumble, true, 0, false, 0),    // Attack misses completely and attacker rolls on the appropriate fumble table. Defender unharmed.
+        },
+    };
     
+    for( SkillResult attacker = SkillResultFumble; attacker <= SkillResultCritical; attacker = attacker + 1)
+    {
+        for( SkillResult defender = SkillResultFumble; defender <= SkillResultCritical; defender = defender + 1)
+        {
+            CombatResult correct = kExpectedResult[int(SkillResultCritical) - int(attacker)][int(SkillResultCritical) - int(defender)];
+            CombatResult test(attacker, defender);
+            XCTAssert( correct.operator==(test) );
+            if( ! correct.operator==(test) )
+            {
+                CombatResult correct2 = kExpectedResult[int(SkillResultCritical) - int(attacker)][int(SkillResultCritical) - int(defender)];
+                CombatResult test2(attacker, defender);
+            }
+        }
+    }
+}
+
+- (void) testLoadCreatures
+{
     
 }
 
@@ -69,5 +157,6 @@
         // Put the code you want to measure the time of here.
     }];
 }
+
 
 @end

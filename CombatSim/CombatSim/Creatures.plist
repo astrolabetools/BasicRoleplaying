@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Bear</key>
+	<dict>
+		<key>Description</key>
+		<string>Bears can attack twice in a round, using either two separate claw attacks or one claw and one bite attack. 
+combat skills). Polar bears are larger and more powerful (STR +2D6,
+CON +1D6+2, SIZ +2D6, +3 armor, +20% to attack skills, Swim 80%).</string>
+		<key>STR</key>
+		<string>3D6+10</string>
+		<key>CON</key>
+		<string>2D6+6</string>
+		<key>SIZ</key>
+		<string>3D6+10</string>
+		<key>POW</key>
+		<string>3D6</string>
+		<key>DEX</key>
+		<string>3D6</string>
+		<key>MOV</key>
+		<string>Walk 12; Swim 2</string>
+		<key>Armor</key>
+		<integer>3</integer>
+		<key>ArmorDescription</key>
+		<string>fur</string>
+		<key>PowerPoints</key>
+		<string></string>
+		<key>Powers</key>
+		<dict/>
+		<key>Spells</key>
+		<dict/>
+		<key>SANLossSuccess</key>
+		<string>0</string>
+		<key>SANLossFailure</key>
+		<string>0</string>
+		<key>Attacks</key>
+		<dict>
+			<key>Bite</key>
+			<dict>
+				<key>Skill</key>
+				<integer>25</integer>
+				<key>Damage</key>
+				<string>1D10</string>
+				<key>DamageComments</key>
+				<string></string>
+			</dict>
+			<key>Claw</key>
+			<dict>
+				<key>Skill</key>
+				<integer>25</integer>
+				<key>Damage</key>
+				<string>1D6+dm</string>
+				<key>DamageComments</key>
+				<string></string>
+			</dict>
+		</dict>
+		<key>Skills</key>
+		<dict>
+			<key>Climb</key>
+			<integer>35</integer>
+			<key>Move Quietly</key>
+			<integer>35</integer>
+			<key>Search</key>
+			<integer>35</integer>
+			<key>Sense</key>
+			<integer>30</integer>
+		</dict>
+		<key>Modifiers</key>
+		<dict/>
+	</dict>
+	<key>&lt;template&gt;</key>
+	<dict>
+		<key>STR</key>
+		<string>3D6</string>
+		<key>CON</key>
+		<string>3D6</string>
+		<key>SIZ</key>
+		<string>2D6+6</string>
+		<key>INT</key>
+		<string>1D3+2</string>
+		<key>POW</key>
+		<string>3D6</string>
+		<key>DEX</key>
+		<string>3D6</string>
+		<key>CHA</key>
+		<string>1D6</string>
+		<key>MOV</key>
+		<string>10</string>
+		<key>Armor</key>
+		<integer>0</integer>
+		<key>ArmorDescription</key>
+		<string></string>
+		<key>PowerPoints</key>
+		<string>max(POW,1)</string>
+		<key>Powers</key>
+		<string></string>
+		<key>Spells</key>
+		<dict>
+			<key>(name)</key>
+			<dict>
+				<key>Level</key>
+				<integer>0</integer>
+				<key>Range</key>
+				<string></string>
+				<key>Duration</key>
+				<string></string>
+				<key>Power Point Cost Per Level</key>
+				<integer>0</integer>
+				<key>Description</key>
+				<string></string>
+				<key>DieRoll</key>
+				<dict/>
+			</dict>
+		</dict>
+		<key>SANLossSuccess</key>
+		<string>0</string>
+		<key>SANLossFailure</key>
+		<string>0</string>
+		<key>Attacks</key>
+		<dict>
+			<key>(name)</key>
+			<dict>
+				<key>Skill</key>
+				<integer>0</integer>
+				<key>Damage</key>
+				<string></string>
+				<key>DamageComments</key>
+				<string></string>
+			</dict>
+		</dict>
+		<key>Skills</key>
+		<dict>
+			<key>Sense</key>
+			<integer>30</integer>
+		</dict>
+		<key>Modifiers</key>
+		<dict/>
+		<key>&lt;ToolTips&gt;</key>
+		<dict>
+			<key>STR</key>
+			<string>A creature without STR cannot interact with physical objects, other than moving around them.</string>
+			<key>CON</key>
+			<string>A creature without CON is immune to disease, radiation, poison, and other attacks requiring a resistance roll versus CON. It is never tired or fatigued. If it has SIZ and a material presence, its hit points are based on a different characteristic.</string>
+			<key>SIZ</key>
+			<string>A creature without a SIZ lacks a physical body or has a microscopic one. It usually cannot interact with physical objects. Its hit points are likely based on CON, if it has any conventional hit points at all.</string>
+			<key>INT</key>
+			<string>Intelligent, sentient creatures have the normal range of INT, while animals and other non-sentient creatures possess ‘fixed’ INT, generally a rating of 3–5, and are ruled by instinct, not reason. A creature with fixed-INT or with no INT is unaffected by powers that affect rational thought, though it may be affected by powers that manipulate emotions.</string>
+			<key>POW</key>
+			<string>Even without POW, a creature may still have power points, but it does not regenerate them normally. Instead, it has some power or special ability letting it gain power points. Like living creatures, when it reaches 0 it is ‘unconscious’ until it somehow regains at least 1 power point.</string>
+			<key>DEX</key>
+			<string>A creature without DEX is either immobile or is essentially stationary. If it has an attack, it occurs on DEX rank 1.</string>
+			<key>CHA</key>
+			<string>Though all creatures have some form of CHA, it is rarely relevant to those not of the same species. If necessary, assign CHA based on 1D6 for plain and featureless creatures, up to 6D6+ for beings of divine beauty. If relevant, temporarily modify the CHA of a creature from another species by –10 while dealing with those outside its species.</string>
+			<key>MOV</key>
+			<string>The primary means of movement is listed first. Creatures that are immobile have no MOV rate.</string>
+			<key>Armor</key>
+			<string>The number of points of armor</string>
+			<key>ArmorDescription</key>
+			<string>(Optional) A human readable description of the type of armor</string>
+			<key>PowerPoints</key>
+			<string>A numerical expression for the number of power points the creature has when typically encountered. Often 0.</string>
+			<key>Powers</key>
+			<string>A description of what powers the creature has.</string>
+			<key>Spells</key>
+			<dict>
+				<key>(name)</key>
+				<dict>
+					<key>Level</key>
+					<string>The spell level</string>
+					<key>Range</key>
+					<string>The maximum effective range for any spell is 100 meters unless otherwise specified. If it directly affects a target (living or otherwise), the target must be within line of sight.</string>
+					<key>Duration</key>
+					<string>Spells usually occur instantly in the Powers Phase of the combat round they are cast in (page 123). They usually last for a single combat round, 10 combat rounds, or for 15 minutes, as indicated in each spell description.</string>
+					<key>Power Point Cost Per Level</key>
+					<string>The power costs this number of power points to cast per level.</string>
+					<key>Description</key>
+					<string>A brief description of what the spell does and how it operates</string>
+					<key>DieRoll</key>
+					<string>A list of optional named die rolls to go with the spell. (e.g.  Damage: 1D6)</string>
+				</dict>
+			</dict>
+			<key>SANLossSuccess</key>
+			<string>Some natural creatures may cause SAN loss, depending
+on the circumstances. This is a numerical expression for points loss if the SAN roll succeeds.</string>
+			<key>SANLossFailure</key>
+			<string>Some natural creatures may cause SAN loss, depending
+on the circumstances. This is a numerical expression for points loss if the SAN roll fails.</string>
+			<key>Attacks</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>The name of the attack</string>
+					<key>Skill</key>
+					<string>The skill rating percentage for the attack</string>
+					<key>Damage</key>
+					<string>A formula for damage or Special, if we should refer to the Damage comments for more info</string>
+					<key>DamageComments</key>
+					<string>Additional information for the damage, especially if the damage is a special type.</string>
+				</dict>
+			</array>
+			<key>Skills</key>
+			<dict>
+				<key>(name)</key>
+				<string>The skill percentage for this skill</string>
+			</dict>
+			<key>Modifiers</key>
+			<dict>
+				<key>(name)</key>
+				<string>An expression that can be used to modify another quantity &quot;STR=STR+2&quot; or make a new variable &quot;DamageModifier2 = 2D6&quot; that is used elsewhere in the monster. If there are no modifiers, the modifiers dictionary may be absent.</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

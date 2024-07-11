@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B24246A2C376C2E003340EC /* Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B2424692C376C2E003340EC /* Tests.mm */; };
+		3B2424722C3771E9003340EC /* DivisionTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B2424712C3771E9003340EC /* DivisionTests.mm */; };
+		3B2424742C38A295003340EC /* SkillCheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B2424732C38A295003340EC /* SkillCheck.cpp */; };
+		3B2424792C3D9945003340EC /* Statistics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B2424782C3D9945003340EC /* Statistics.cpp */; };
+		3B24247B2C3DDCB8003340EC /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B24247A2C3DDCB8003340EC /* Table.cpp */; };
+		3B2424942C3F6705003340EC /* AstrolabeCompendium.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2424932C3F6705003340EC /* AstrolabeCompendium.m */; };
+		3B2424962C403872003340EC /* SkillCheck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B2424732C38A295003340EC /* SkillCheck.cpp */; };
 		3B8CD1702C37146600A2AF40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8CD16F2C37146600A2AF40 /* main.m */; };
+		3B8CD17A2C3715C500A2AF40 /* Astrolabe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8CD1782C3715BB00A2AF40 /* Astrolabe.framework */; };
+		3B8CD17E2C3716A400A2AF40 /* Creature.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3B8CD17D2C3716A400A2AF40 /* Creature.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,26 +32,73 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B2424622C3763FF003340EC /* SkillCheck.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SkillCheck.hpp; sourceTree = "<group>"; };
+		3B2424672C376C2E003340EC /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B2424692C376C2E003340EC /* Tests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Tests.mm; sourceTree = "<group>"; };
+		3B2424702C3771A4003340EC /* Division.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Division.hpp; sourceTree = "<group>"; };
+		3B2424712C3771E9003340EC /* DivisionTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DivisionTests.mm; sourceTree = "<group>"; };
+		3B2424732C38A295003340EC /* SkillCheck.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SkillCheck.cpp; sourceTree = "<group>"; };
+		3B2424762C3A03D9003340EC /* Table.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Table.hpp; sourceTree = "<group>"; };
+		3B2424772C3CC647003340EC /* Statistics.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Statistics.hpp; sourceTree = "<group>"; };
+		3B2424782C3D9945003340EC /* Statistics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Statistics.cpp; sourceTree = "<group>"; };
+		3B24247A2C3DDCB8003340EC /* Table.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
+		3B2424912C3F62F3003340EC /* Creatures.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Creatures.plist; sourceTree = "<group>"; };
+		3B2424922C3F6705003340EC /* AstrolabeCompendium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AstrolabeCompendium.h; path = ../AstroableCompedium/AstrolabeCompendium.h; sourceTree = "<group>"; };
+		3B2424932C3F6705003340EC /* AstrolabeCompendium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AstrolabeCompendium.m; path = ../AstroableCompedium/AstrolabeCompendium.m; sourceTree = "<group>"; };
 		3B8CD16C2C37146600A2AF40 /* CombatSim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CombatSim; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8CD16F2C37146600A2AF40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3B8CD1762C37151500A2AF40 /* Creature.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Creature.hpp; sourceTree = "<group>"; };
+		3B8CD1782C3715BB00A2AF40 /* Astrolabe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Astrolabe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B8CD17D2C3716A400A2AF40 /* Creature.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Creature.mm; sourceTree = "<group>"; };
+		3B8CD17F2C37183000A2AF40 /* CombatSimTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombatSimTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3B8CD1692C37146600A2AF40 /* Frameworks */ = {
+		3B2424642C376C2E003340EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3B8CD1692C37146600A2AF40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B8CD17A2C3715C500A2AF40 /* Astrolabe.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B2424682C376C2E003340EC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3B2424692C376C2E003340EC /* Tests.mm */,
+				3B2424712C3771E9003340EC /* DivisionTests.mm */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3B2424952C3F6711003340EC /* AstrolabeCompendium */ = {
+			isa = PBXGroup;
+			children = (
+				3B2424922C3F6705003340EC /* AstrolabeCompendium.h */,
+				3B2424932C3F6705003340EC /* AstrolabeCompendium.m */,
+			);
+			name = AstrolabeCompendium;
+			path = ../AstroableCompedium;
+			sourceTree = "<group>";
+		};
 		3B8CD1632C37146600A2AF40 = {
 			isa = PBXGroup;
 			children = (
+				3B2424952C3F6711003340EC /* AstrolabeCompendium */,
 				3B8CD16E2C37146600A2AF40 /* CombatSim */,
+				3B2424682C376C2E003340EC /* Tests */,
 				3B8CD16D2C37146600A2AF40 /* Products */,
+				3B8CD1772C3715BB00A2AF40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				3B8CD16C2C37146600A2AF40 /* CombatSim */,
+				3B2424672C376C2E003340EC /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,14 +114,50 @@
 		3B8CD16E2C37146600A2AF40 /* CombatSim */ = {
 			isa = PBXGroup;
 			children = (
+				3B2424912C3F62F3003340EC /* Creatures.plist */,
 				3B8CD16F2C37146600A2AF40 /* main.m */,
+				3B8CD17F2C37183000A2AF40 /* CombatSimTypes.h */,
+				3B8CD1762C37151500A2AF40 /* Creature.hpp */,
+				3B8CD17D2C3716A400A2AF40 /* Creature.mm */,
+				3B2424702C3771A4003340EC /* Division.hpp */,
+				3B2424622C3763FF003340EC /* SkillCheck.hpp */,
+				3B2424732C38A295003340EC /* SkillCheck.cpp */,
+				3B2424772C3CC647003340EC /* Statistics.hpp */,
+				3B2424782C3D9945003340EC /* Statistics.cpp */,
+				3B2424762C3A03D9003340EC /* Table.hpp */,
+				3B24247A2C3DDCB8003340EC /* Table.cpp */,
 			);
 			path = CombatSim;
+			sourceTree = "<group>";
+		};
+		3B8CD1772C3715BB00A2AF40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B8CD1782C3715BB00A2AF40 /* Astrolabe.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3B2424662C376C2E003340EC /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B24246B2C376C2E003340EC /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				3B2424632C376C2E003340EC /* Sources */,
+				3B2424642C376C2E003340EC /* Frameworks */,
+				3B2424652C376C2E003340EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 3B2424672C376C2E003340EC /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		3B8CD16B2C37146600A2AF40 /* CombatSim */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B8CD1732C37146600A2AF40 /* Build configuration list for PBXNativeTarget "CombatSim" */;
@@ -91,6 +184,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					3B2424662C376C2E003340EC = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					3B8CD16B2C37146600A2AF40 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -110,22 +206,80 @@
 			projectRoot = "";
 			targets = (
 				3B8CD16B2C37146600A2AF40 /* CombatSim */,
+				3B2424662C376C2E003340EC /* Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		3B2424652C376C2E003340EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3B2424632C376C2E003340EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B2424962C403872003340EC /* SkillCheck.cpp in Sources */,
+				3B2424722C3771E9003340EC /* DivisionTests.mm in Sources */,
+				3B24246A2C376C2E003340EC /* Tests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3B8CD1682C37146600A2AF40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2424942C3F6705003340EC /* AstrolabeCompendium.m in Sources */,
+				3B2424742C38A295003340EC /* SkillCheck.cpp in Sources */,
+				3B8CD17E2C3716A400A2AF40 /* Creature.mm in Sources */,
+				3B2424792C3D9945003340EC /* Statistics.cpp in Sources */,
 				3B8CD1702C37146600A2AF40 /* main.m in Sources */,
+				3B24247B2C3DDCB8003340EC /* Table.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3B24246C2C376C2E003340EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65MQA34U6L;
+				FRAMEWORK_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.astrolabetools.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Debug;
+		};
+		3B24246D2C376C2E003340EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 65MQA34U6L;
+				FRAMEWORK_SEARCH_PATHS = "$(CONFIGURATION_BUILD_DIR)";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.astrolabetools.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Release;
+		};
 		3B8CD1712C37146600A2AF40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -172,6 +326,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				"GCC_PREPROCESSOR_DEFINITIONS[sdk=macosx*]" = (
+					"$(inherited)",
+					"__MAC_OS_X_VERSION_MIN_REQUIRED=__MAC_14_5",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -179,7 +337,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -227,6 +385,11 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
+				"GCC_PREPROCESSOR_DEFINITIONS[sdk=macosx*]" = (
+					"$(inherited)",
+					"__MAC_OS_X_VERSION_MIN_REQUIRED=__MAC_14_5",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -234,7 +397,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -264,6 +427,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3B24246B2C376C2E003340EC /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B24246C2C376C2E003340EC /* Debug */,
+				3B24246D2C376C2E003340EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3B8CD1672C37146600A2AF40 /* Build configuration list for PBXProject "CombatSim" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
