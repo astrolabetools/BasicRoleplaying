@@ -94,7 +94,7 @@ CON +1D6+2, SIZ +2D6, +3 armor, +20% to attack skills, Swim 80%).</string>
 		<key>PowerPoints</key>
 		<string>max(POW,1)</string>
 		<key>Powers</key>
-		<string></string>
+		<dict/>
 		<key>Spells</key>
 		<dict>
 			<key>(name)</key>
