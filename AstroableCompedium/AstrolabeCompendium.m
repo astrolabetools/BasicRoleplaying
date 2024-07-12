@@ -192,6 +192,7 @@ static NSObject * __nullable
                 NSObject * o = CanonicalizeObject( original, childTemplateDictionary, key, &e);
                 if( o && o != original)
                     d[key] = o;
+                RETAIN(e);
             }];
         }
         else
@@ -203,10 +204,14 @@ static NSObject * __nullable
                 o = CanonicalizeObject( o, templateDictionary[key], key, &e);
                 if( o && o != original)
                     d[key] = o;
+                RETAIN(e);
             }];
         }
         if(e)
+        {
             *error = e;
+            AUTORELEASE(e);
+        }
         return (NSMutableDictionary*) d;
     }
 
@@ -363,10 +368,14 @@ static NSMutableArray * __nullable
         [(NSDictionary*)o enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString * name = [NSString stringWithFormat: @"%@[%lu]", objectName, index];
             a[index++] = CanonicalizeObject(obj, obj, name, &e);
+            RETAIN(e);
         }];
         
         if(e)
+        {
+            AUTORELEASE(e);
             *error = e;
+        }
         return a;
     }
 
@@ -604,10 +613,14 @@ MechanusImage *
             return nil;
             
         result = (MechanusImage*) AstrolabeCompendiumCreateImageFromData(data);
+        RETAIN(e);
     }
     
     if(e)
+    {
+        AUTORELEASE(e);
         *error = e;
+    }
     return result;
 }
 
@@ -629,9 +642,13 @@ NSMutableDictionary * __nullable AstrolabeCompendiumLoadFromURL( NSURL * __nulla
         RETAIN(result);
 
         assert( [result isKindOfClass: NSMutableDictionary.class] );
+        RETAIN(e);
     }
     if(e)
+    {
+        AUTORELEASE(e);
         *errorOut = e;
+    }
     return result;
 }
 
@@ -692,10 +709,14 @@ NSMutableDictionary * FormatDictionaryForStorage( NSDictionary * d,
             
             e = MakeError( @"Invalid object type in dictionary could not be saved to plist.", key, obj);
         }];
+        RETAIN(e);
     };
 
     if(e)
+    {
+        AUTORELEASE(e);
         *error = e;
+    }
     return saved;
 }
 
@@ -752,9 +773,13 @@ NSMutableArray * FormatArrayForStorage( NSArray * a,
             
             e = MakeError( @"Invalid object type in array could not be saved to plist.", objName, obj);
         }
+        RETAIN(e);
     }
     if(e)
+    {
+        AUTORELEASE(e);
         *errorOut = e;
+    }
     
     return result;
 }
