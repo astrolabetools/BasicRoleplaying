@@ -183,12 +183,13 @@ static NSObject * __nullable
         if( NO == [d isKindOfClass: NSMutableDictionary.class])
             d = AUTORELEASE( [d mutableCopy]);
         
+        __block NSError * e = nil;
         if( nil == templateDictionary)
         {
             NSDictionary * childTemplateDictionary = d[kTemplateKey];
             [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull original, BOOL * _Nonnull stop)
             {
-                NSObject * o = CanonicalizeObject( original, childTemplateDictionary, key, error);
+                NSObject * o = CanonicalizeObject( original, childTemplateDictionary, key, &e);
                 if( o && o != original)
                     d[key] = o;
             }];
@@ -199,12 +200,13 @@ static NSObject * __nullable
             {
                 NSObject * original = d[key];
                 NSObject * o = original ? original : templateObject;
-                o = CanonicalizeObject( o, templateDictionary[key], key, error);
+                o = CanonicalizeObject( o, templateDictionary[key], key, &e);
                 if( o && o != original)
                     d[key] = o;
             }];
         }
-        
+        if(e)
+            *error = e;
         return (NSMutableDictionary*) d;
     }
 
@@ -357,11 +359,14 @@ static NSMutableArray * __nullable
     {
         NSMutableArray * a = AUTORELEASE( [NSMutableArray new] );
         __block unsigned long index = 0;
+        __block NSError * e = nil;
         [(NSDictionary*)o enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             NSString * name = [NSString stringWithFormat: @"%@[%lu]", objectName, index];
-            a[index++] = CanonicalizeObject(obj, obj, name, error);
+            a[index++] = CanonicalizeObject(obj, obj, name, &e);
         }];
         
+        if(e)
+            *error = e;
         return a;
     }
 
@@ -589,18 +594,24 @@ MechanusImage *
     AstrolabeCompendiumCreateImageFromURL( NSURL * __nullable url,
                                            NSError * __nullable __autoreleasing * error) NS_RETURNS_RETAINED
 {
+    NSError * e = nil;
+    MechanusImage * result = nil;
     @autoreleasepool {
         NSData * data = [NSData dataWithContentsOfURL: url
                                               options: 0
-                                                error: error];
+                                                error: &e];
         if( nil == data)
             return nil;
             
-        return AstrolabeCompendiumCreateImageFromData(data);
+        result = (MechanusImage*) AstrolabeCompendiumCreateImageFromData(data);
     }
+    
+    if(e)
+        *error = e;
+    return result;
 }
 
-MechanusImage *
+NSImage *
 AstrolabeCompendiumCreateImageFromData( NSData * __nullable data) NS_RETURNS_RETAINED
 {
     return [[MechanusImage alloc] initWithData: data];
@@ -612,14 +623,15 @@ NSMutableDictionary * __nullable AstrolabeCompendiumLoadFromURL( NSURL * __nulla
                                                                  NSError * __nullable __autoreleasing * __nonnull errorOut ) NS_RETURNS_RETAINED
 {
     NSMutableDictionary * result = nil;
-    
+    NSError * e = nil;
     @autoreleasepool {
-        result = (NSMutableDictionary*) CanonicalizeObject( [NSDictionary dictionaryWithContentsOfURL: url], nil, @"<root>", errorOut);
+        result = (NSMutableDictionary*) CanonicalizeObject( [NSDictionary dictionaryWithContentsOfURL: url], nil, @"<root>", &e);
         RETAIN(result);
 
         assert( [result isKindOfClass: NSMutableDictionary.class] );
     }
-    
+    if(e)
+        *errorOut = e;
     return result;
 }
 
@@ -635,7 +647,8 @@ NSMutableDictionary * FormatDictionaryForStorage( NSDictionary * d,
                                                   NSError * __nullable __autoreleasing * __nonnull error) NS_RETURNS_RETAINED
 {
     NSMutableDictionary * saved = [NSMutableDictionary new];
-
+    __block NSError * e = nil;
+    
     @autoreleasepool {
         // copy out plist entries, converting to MechanusData as needed as we go
         [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop)
@@ -650,7 +663,7 @@ NSMutableDictionary * FormatDictionaryForStorage( NSDictionary * d,
             
             if([obj isKindOfClass: NSDictionary.class ])
             {
-                NSDictionary * formatted = FormatDictionaryForStorage(obj, error);
+                NSDictionary * formatted = FormatDictionaryForStorage(obj, &e);
                 saved[key] = formatted;
                 RELEASE(formatted);
                 return;
@@ -658,7 +671,7 @@ NSMutableDictionary * FormatDictionaryForStorage( NSDictionary * d,
             
             if([obj isKindOfClass: NSArray.class ])
             {
-                NSMutableArray * formatted = FormatArrayForStorage(obj, key, error);
+                NSMutableArray * formatted = FormatArrayForStorage(obj, key, &e);
                 saved[key] = formatted;
                 RELEASE(formatted);
                 return;
@@ -667,30 +680,32 @@ NSMutableDictionary * FormatDictionaryForStorage( NSDictionary * d,
             if( [obj isKindOfClass: MechanusImage.class] ||
                [obj isKindOfClass: NSAttributedString.class])
             {
-                saved[key] = [[MechanusData mechanusDataWithObject: obj] dataRepresentationWithError: error];
+                saved[key] = [[MechanusData mechanusDataWithObject: obj] dataRepresentationWithError: &e];
                 return;
             }
             
             if( [obj isKindOfClass: NSImage.class])
             {
-                *error = MakeError( @"Image was not created with AstrolabeCompendiumCreateImageFromData/URL() and could not be saved.", key, obj);
+                e = MakeError( @"Image was not created with AstrolabeCompendiumCreateImageFromData/URL() and could not be saved.", key, obj);
                 return;
             }
             
-            *error = MakeError( @"Invalid object type in dictionary could not be saved to plist.", key, obj);
+            e = MakeError( @"Invalid object type in dictionary could not be saved to plist.", key, obj);
         }];
     };
 
+    if(e)
+        *error = e;
     return saved;
 }
 
 NSMutableArray * FormatArrayForStorage( NSArray * a,
                                         NSString * name,
-                                        NSError * __nullable __autoreleasing * __nonnull error) NS_RETURNS_RETAINED
+                                        NSError * __nullable __autoreleasing * __nonnull errorOut) NS_RETURNS_RETAINED
 {
     NSMutableArray * result = [[NSMutableArray alloc] initWithCapacity: a.count];
-    
-    @autoreleasepool 
+    NSError * e = nil;
+    @autoreleasepool
     {
         unsigned long count = a.count;
         for( unsigned long i = 0; i < count; i++)
@@ -707,7 +722,7 @@ NSMutableArray * FormatArrayForStorage( NSArray * a,
             
             if([obj isKindOfClass: NSDictionary.class ])
             {
-                NSMutableDictionary * formatted = FormatDictionaryForStorage((NSDictionary*) obj, error);
+                NSMutableDictionary * formatted = FormatDictionaryForStorage((NSDictionary*) obj, &e);
                 result[i] = formatted;
                 RELEASE(formatted);
                 continue;
@@ -715,7 +730,7 @@ NSMutableArray * FormatArrayForStorage( NSArray * a,
 
             if([obj isKindOfClass: NSArray.class ])
             {
-                NSMutableArray * array = FormatArrayForStorage((NSArray*) obj, name, error);
+                NSMutableArray * array = FormatArrayForStorage((NSArray*) obj, name, &e);
                 result[i] = array;
                 RELEASE(array);
                 continue;
@@ -724,21 +739,23 @@ NSMutableArray * FormatArrayForStorage( NSArray * a,
             if( [obj isKindOfClass: MechanusImage.class] ||
                 [obj isKindOfClass: NSAttributedString.class])
             {
-                result[i] = [[MechanusData mechanusDataWithObject: (NSObject<NSSecureCoding>*)obj] dataRepresentationWithError: error];
+                result[i] = [[MechanusData mechanusDataWithObject: (NSObject<NSSecureCoding>*)obj] dataRepresentationWithError: &e];
                 continue;
             }
             
             NSString * objName = [NSString stringWithFormat: @"%@[%lu]", name, i];
             if( [obj isKindOfClass: NSImage.class])
             {
-                *error = MakeError( @"Image was not created with AstrolabeCompendiumCreateImageFromData/URL() and could not be saved.", objName, obj);
+                e = MakeError( @"Image was not created with AstrolabeCompendiumCreateImageFromData/URL() and could not be saved.", objName, obj);
                 continue;
             }
             
-            *error = MakeError( @"Invalid object type in array could not be saved to plist.", objName, obj);
+            e = MakeError( @"Invalid object type in array could not be saved to plist.", objName, obj);
         }
     }
-
+    if(e)
+        *errorOut = e;
+    
     return result;
 }
 
