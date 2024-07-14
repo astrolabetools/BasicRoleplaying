@@ -94,10 +94,28 @@ CON +1D6+2, SIZ +2D6, +3 armor, +20% to attack skills, Swim 80%).</string>
 		<key>PowerPoints</key>
 		<string>max(POW,1)</string>
 		<key>Powers</key>
-		<dict/>
+		<dict>
+			<key>&lt;template&gt;</key>
+			<dict>
+				<key>Base Range</key>
+				<string>Self</string>
+				<key>Duration</key>
+				<string>Always on</string>
+				<key>Power Point Cost</key>
+				<string></string>
+				<key>Summary</key>
+				<string></string>
+				<key>Description</key>
+				<string></string>
+				<key>More Description</key>
+				<string></string>
+				<key>DieRoll</key>
+				<dict/>
+			</dict>
+		</dict>
 		<key>Spells</key>
 		<dict>
-			<key>(name)</key>
+			<key>&lt;template&gt;</key>
 			<dict>
 				<key>Level</key>
 				<integer>0</integer>
@@ -119,7 +137,7 @@ CON +1D6+2, SIZ +2D6, +3 armor, +20% to attack skills, Swim 80%).</string>
 		<string>0</string>
 		<key>Attacks</key>
 		<dict>
-			<key>(name)</key>
+			<key>&lt;template&gt;</key>
 			<dict>
 				<key>Skill</key>
 				<integer>0</integer>
@@ -131,11 +149,14 @@ CON +1D6+2, SIZ +2D6, +3 armor, +20% to attack skills, Swim 80%).</string>
 		</dict>
 		<key>Skills</key>
 		<dict>
-			<key>Sense</key>
-			<integer>30</integer>
+			<key>&lt;template&gt;</key>
+			<integer>0</integer>
 		</dict>
 		<key>Modifiers</key>
-		<dict/>
+		<dict>
+			<key>&lt;template&gt;</key>
+			<string></string>
+		</dict>
 		<key>&lt;ToolTips&gt;</key>
 		<dict>
 			<key>STR</key>
@@ -164,7 +185,7 @@ CON +1D6+2, SIZ +2D6, +3 armor, +20% to attack skills, Swim 80%).</string>
 			<string>A description of what powers the creature has.</string>
 			<key>Spells</key>
 			<dict>
-				<key>(name)</key>
+				<key>&lt;template&gt;</key>
 				<dict>
 					<key>Level</key>
 					<string>The spell level</string>
@@ -187,10 +208,9 @@ on the circumstances. This is a numerical expression for points loss if the SAN 
 			<string>Some natural creatures may cause SAN loss, depending
 on the circumstances. This is a numerical expression for points loss if the SAN roll fails.</string>
 			<key>Attacks</key>
-			<array>
+			<dict>
+				<key>&lt;template&gt;</key>
 				<dict>
-					<key>Name</key>
-					<string>The name of the attack</string>
 					<key>Skill</key>
 					<string>The skill rating percentage for the attack</string>
 					<key>Damage</key>
@@ -198,15 +218,15 @@ on the circumstances. This is a numerical expression for points loss if the SAN 
 					<key>DamageComments</key>
 					<string>Additional information for the damage, especially if the damage is a special type.</string>
 				</dict>
-			</array>
+			</dict>
 			<key>Skills</key>
 			<dict>
-				<key>(name)</key>
+				<key>&lt;template&gt;</key>
 				<string>The skill percentage for this skill</string>
 			</dict>
 			<key>Modifiers</key>
 			<dict>
-				<key>(name)</key>
+				<key>&lt;template&gt;</key>
 				<string>An expression that can be used to modify another quantity &quot;STR=STR+2&quot; or make a new variable &quot;DamageModifier2 = 2D6&quot; that is used elsewhere in the monster. If there are no modifiers, the modifiers dictionary may be absent.</string>
 			</dict>
 		</dict>

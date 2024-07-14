@@ -7,6 +7,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Table.hpp"
+#include "Creature.hpp"
 
 @interface Tests : XCTestCase
 
@@ -22,7 +23,7 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-const char * GetCorrectEntry( Table<const char*, 100>::Entry * table, unsigned long count, unsigned long index)
+const char * GetCorrectEntry( ::Table<const char*, 100>::Entry * table, unsigned long count, unsigned long index)
 {
     for( long i = count -1; i >= 0; i--)
     {
@@ -35,7 +36,7 @@ const char * GetCorrectEntry( Table<const char*, 100>::Entry * table, unsigned l
 
 - (void)testTable {
     
-    Table<const char*, 100>::Entry data[] =
+    ::Table<const char*, 100>::Entry data[] =
     {
         {01, "Adaptability"},
         {04, "Allergy"},
@@ -72,7 +73,7 @@ const char * GetCorrectEntry( Table<const char*, 100>::Entry * table, unsigned l
     
     for( unsigned long tableSize = 1; tableSize <= count; tableSize ++)
     {
-        Table<const char*, 100> table(data, tableSize);
+        ::Table<const char*, 100> table(data, tableSize);
         
         for( unsigned long i = 1; i <= 100; i++)
         {
@@ -148,6 +149,17 @@ const char * GetCorrectEntry( Table<const char*, 100>::Entry * table, unsigned l
 
 - (void) testLoadCreatures
 {
+    NSBundle * bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [bundle  URLForResource: @"Creatures" withExtension:@"plist" ];
+
+    NSError * error = nil;
+    Species::ImportURL(url, &error);
+    
+    const Astrolabe::LinkedList<Species> & speciesList = Species::GetList();
+    speciesList.Iterate(^bool(Species * _Nonnull node) {
+        node->Print();
+        return false;
+    });
     
 }
 

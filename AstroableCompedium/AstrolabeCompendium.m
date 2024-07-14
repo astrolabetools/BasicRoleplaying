@@ -197,10 +197,14 @@ static NSObject * __nullable
         }
         else
         {
-            [templateDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull templateObject, BOOL * _Nonnull stop) 
+            BUG there are sub dictionaries with named items in them of indeterminate name, and this
+                  approach here doesn't work for that. We need some naming convention for anyname
+            [templateDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull templateObject, BOOL * _Nonnull stop)
             {
+                if( [key isEqualToString: @"Attacks"])
+                    printf("foo");
                 NSObject * original = d[key];
-                NSObject * o = original ? original : templateObject;
+                NSObject * o = original || !KeyIsMetadata(key) ? original : templateObject;
                 o = CanonicalizeObject( o, templateDictionary[key], key, &e);
                 if( o && o != original)
                     d[key] = o;

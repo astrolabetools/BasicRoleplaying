@@ -41,7 +41,7 @@ ASTROLABE_EXTERN NSMutableDictionary * __nullable
 
 /*! @abstract Save a compendium to a URL
  *  @param compendium   A dictionary containing compendium and template/tootips data to save
- *  @param url  The location to save the compendium 
+ *  @param url  The location to save the compendium
  *  @param errorOut  On return, the address of a NSError containing failure information. Otherwise unmodified. */
 ASTROLABE_EXTERN void
     AstrolabeCompendiumWriteToURL( NSDictionary * __nullable compendium,
@@ -89,11 +89,19 @@ ASTROLABE_EXTERN BOOL
 //  The last level dictionaries are dictionary representations of the (sub)object type.  If, for example, the parent
 //      dictionary contains weapons, then all of the objects at this level are the weapons. Each example of the type
 //      shall have a consistent set of properties (e.g. damage, HP, attacks, modifiers, base chance to hit, etc.).
-//      In addition, there will be a object named <template> which has the same data structure as the other entries 
+//      In addition, there will be a object named <template> which has the same data structure as the other entries
 //      (possibly with extra fields) which serves to enumerate the set of expected fields in the type of object, and
 //      the default values for them if a value is absent in the other entries. <template> will also contain an entry
 //      called <ToolTips> which reproduces the set of names again, but this time with a helpful human readable
 //      descriptions for each.
+//  It may occur that further sub-dictionaries are required which have content with arbitrary names. For example,
+//      in Mechanus BRP there are Skills, Attacks, Modifiers sub-dictionaries each of which may contain content
+//      with arbitrary names.  An attack might be a dictionary with a number for skill, a string for damage, and
+//      another string for some user readable description. The format of these sub-dictionaries is given by a
+//      separate <template> dictionary within the original <template> dictionary. That is, wherever there is content
+//      in a dictionary with arbitrary names, an entry <template> shall occur either as a peer to that content (top
+//      level), or within another <template> dictionary with a path within the top level <template> dictionary which
+//      mirrors the position of the content it describes. See Modifiers in example below.
 //
 //      For example:
 //      ============
@@ -101,7 +109,10 @@ ASTROLABE_EXTERN BOOL
 //      @{
 //          @"Appraise" :   @{  @"Description" : @"Use this skill to estimate an object’s worth, be it an old painting, a gemstone, a weapon, or a riding horse. Failure means they have no idea, while a fumble yields false information. A special or critical yields additional information.",
 //                              @"Category" : @"Mental",
-//                              @"Base Chance" : @15
+//                              @"Base Chance" : @15,
+//                              @"Modifiers" : @{
+//                                  @"Haggle" : @10
+//                              }
 //                          },
 //          @"Art" :        @{  @"Setting Notes" : @"Art is universal, though it may have era- or setting-specific specialties.",
 //                              @"Specialties" : @"Calligraphy, Composing, Conceptual Art, Digital Art, Drawing, Painting, Photography, Poetry, Sculpture, Sketching, Songwriting, Writing, etc.",
@@ -117,6 +128,9 @@ ASTROLABE_EXTERN BOOL
 //                              @"Description" : @"",
 //                              @"Category" : @"",
 //                              @"Base Chance" : @25,
+//                              @"Modifiers" : @{
+//                                  @"<template> : @0
+//                              }
 //                              @"<ToolTips>" : @{
 //                                  @"System Notes" : @"Relevant rules or systems, if any.",
 //                                  @"Setting Notes" : @"Additional information about the skill in different settings. If this entry is not present, the skill works unchanged in almost any setting.",
@@ -125,6 +139,9 @@ ASTROLABE_EXTERN BOOL
 //                                  @"Description" : @"A brief description of the kinds of tasks that can be accomplished using the skill."
 //                                  @"Category" : @"The skill category the skill falls into, for purposes of general classification and optional category bonuses. {Combat, Communication, Manipulatiuon, Mental, Preception, Physical}"
 //                                  @"Base Chance" : @"The skill rating all characters have in the skill, specialized by era if applicable."
+//                                  @"Modifiers" : @{
+//                                      @"<template>" : @"modifiers added to other skills as a result of having this skill"
+//                                  }
 //                              }
 //          }
 //      }

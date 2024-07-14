@@ -17,17 +17,24 @@ Astrolabe::LinkedList<Species> Species::speciesList;
 void Species::ImportURL(NSURL * _Nonnull url,
                         NSError * _Nullable __autoreleasing * _Nonnull error)
 {
-    NSMutableDictionary * d = AstrolabeCompendiumLoadFromURL( url, error);
-    if( nil == d || *error )
-        return;
-    
-    [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        if( KeyIsMetadata(key) || NO == [obj isKindOfClass: NSDictionary.class])
+    @try
+    {
+        NSMutableDictionary * d = AstrolabeCompendiumLoadFromURL( url, error);
+        if( nil == d || *error )
             return;
         
-        speciesList.Append( new Species([(NSString*) key cStringUsingEncoding: NSUTF8StringEncoding],
-                                         (NSDictionary*) obj) );
-    }];
+        [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            if( KeyIsMetadata(key) || NO == [obj isKindOfClass: NSDictionary.class])
+                return;
+            
+            speciesList.Append( new Species([(NSString*) key cStringUsingEncoding: NSUTF8StringEncoding],
+                                            (NSDictionary*) obj) );
+        }];
+    }
+    @catch(NSError * e)
+    {
+        *error = e;
+    }
 }
 
 static inline const char * __nullable ReadString( NSObject * __nullable obj)
@@ -157,7 +164,6 @@ Species::Species( const char * __nonnull name, NSDictionary * __nonnull d) :
         AddCharacteristic( "STR", ReadExpression(d, @"STR"));
         AddCharacteristic( "CON", ReadExpression(d, @"CON"));
         AddCharacteristic( "SIZ", ReadExpression(d, @"SIZ"));
-        AddCharacteristic( "SIZ", ReadExpression(d, @"SIZ"));
         AddCharacteristic( "INT", ReadExpression(d, @"INT"));
         AddCharacteristic( "POW", ReadExpression(d, @"POW"));
         AddCharacteristic( "DEX", ReadExpression(d, @"DEX"));
@@ -196,23 +202,22 @@ void Species::AddCharacteristic( const char * __nullable name,
 
 void Species::ReadAttacks( NSObject * __nonnull attacks)
 {
-    char buf[512];
-    
     if( [attacks isKindOfClass: NSDictionary.class])
     {
         NSDictionary * d = (NSDictionary*) attacks;
         [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) 
         {
             char name[512];  snprintf( name, sizeof(name), "Attack::%s", [key cStringUsingEncoding: NSUTF8StringEncoding]);
-            if( [obj isKindOfClass: NSNumber.class])
-                return AddCharacteristic( name, [(NSNumber*)obj doubleValue]);
-
-            if( [obj isKindOfClass: NSAttributedString.class])
-                obj = [(NSAttributedString*) obj string];
-            if( [obj isKindOfClass: NSString.class])
+            if( [obj isKindOfClass: NSDictionary.class])
             {
-                AstrolabeExpression::Expression * e = CreateExpression(name, [(NSString*) obj cStringUsingEncoding: NSUTF8StringEncoding]);
-                return AddCharacteristic(name, e);
+                NSDictionary * attack = (NSDictionary*) obj;
+                long skill = ReadNumber( attack, @"Skill", 25);
+                AstrolabeExpression::Expression * e = ReadExpression( attack, @"Damage");
+                const char * comments = ReadString(attack[@"DamageComments"]);
+                
+                Attack * a = new Attack( skill, e, name, comments);
+                this->attacks.Append(a);
+                return;
             }
             
             const char * description = [[obj debugDescription] cStringUsingEncoding: NSUTF8StringEncoding];
@@ -238,8 +243,6 @@ void Species::ReadAttacks( NSObject * __nonnull attacks)
 
 void Species::ReadSkills( NSObject * __nonnull skills)
 {
-    char buf[512];
-    
     if( [skills isKindOfClass: NSDictionary.class])
     {
         NSDictionary * d = (NSDictionary*) skills;
@@ -271,8 +274,6 @@ void Species::ReadSkills( NSObject * __nonnull skills)
 
 void Species::ReadModifiers( NSObject * __nonnull modifiers)
 {
-    char buf[512];
-    
     if( [modifiers isKindOfClass: NSDictionary.class])
     {
         NSDictionary * d = (NSDictionary*) modifiers;
@@ -314,3 +315,108 @@ void Species::ReadModifiers( NSObject * __nonnull modifiers)
     ConstExtent extent(description);
     ReportParseError( GetName(), description, extent, "Unknown field type / not usable for encoding an modifier");
 }
+
+bool Species::Print( unsigned long indentLevel, Extent * __nullable where ) const
+{
+    __block bool overflow = false;
+    PrintExtent(where, &overflow, "%sSpecies <%p>:\n", GetIndentString(indentLevel), this);
+    PrintExtent(where, &overflow, "%snext    <%p>:\n", GetIndentString(indentLevel+1), next.GetNext());
+    overflow |= false == context.Print(indentLevel+1, where);
+    PrintExtent(where, &overflow, "%sattacks %lu:\n", GetIndentString(indentLevel+1), attacks.GetCount());
+    attacks.Iterate(^bool(Attack * _Nonnull node) {
+        overflow |= false == node->Print(indentLevel + 2, where);
+        return false;
+    });
+    return ! overflow;
+}
+
+#pragma mark - Attack
+
+class AutoCriticalMode
+{
+private:
+    AstrolabeExpression::Expression * __nullable expression;
+public:
+    AutoCriticalMode( AstrolabeExpression::Expression * e, ExpressionDiceMode mode) : expression(mode == DiceModeDefault ? NULL : e ){ if(e) ExpressionSetDiceMode(e, mode); }
+    ~AutoCriticalMode(){ if(expression) ExpressionSetDiceMode(expression, DiceModeDefault);}
+};
+
+AstrolabeExpression::Value Attack::GetDamage( ExpressionDiceMode diceMode, const Creature & attacker ) const
+{
+    AutoCriticalMode(damage, diceMode);
+    return ExpressionEvaluate( damage, attacker.GetContext());
+}
+
+bool Attack::Print( unsigned long indentLevel, Extent * __nullable where ) const
+{
+    __block bool overflow = false;
+    char expressionString[1024];
+    Astrolabe::Extent extent(expressionString, sizeof(expressionString));
+    AstrolabeExpression::ExpressionPrint(damage, &extent);
+    PrintExtent(where, &overflow, "%sAttack <%p> %s: %ld%% %s\n",
+                GetIndentString(indentLevel), this, (const char*) name,
+                skill.GetValue(), expressionString );
+
+    return ! overflow;
+}
+
+
+#pragma mark - Creature
+
+
+Creature::Creature(const char * _name, const Species & s) : species(s), name(_name)
+{
+    const AstrolabeExpression::Context & sc = s.GetContext();
+    
+    // Copy the types
+    sc.IterateTypes(^bool(const Type &type, UNUSED unsigned long index, unsigned long UNUSED depth) {
+        if(NULL == sc.GetType(type.GetName()))
+            Type::Create(context, type.GetName(), type.GetRepresentation(), type.GetRoundingMode());
+        return false;
+    });
+    
+    // Copy the functions
+    sc.IterateFunctions(^bool(const Function &func, unsigned long index, unsigned long depth) {
+        Function::Create( func.GetName(), 
+                          context.GetType(func.GetReturnType().GetName()),
+                          ExpressionCopy(func.GetExpression()));
+        return false;
+    });
+    
+    // flatten the variables: e.g. STR 3d6 -> STR 12
+    sc.IterateVariables(^bool(const Variable &v, unsigned long index, unsigned long depth) {
+        Variable::Create( v.GetName(), v.GetCachedValue(), context.GetType(v.GetType()->GetName()));
+        return false;
+    });
+    
+    // figure out which attack to use
+    attack = NULL;
+    s.IterateAttacks(^(const Attack &a) {
+        if( attack)
+        {
+            Value oldDamage = attack->GetDamage( DiceModeAverage, *this ) * attack->GetSkill().GetValue() /* times 1% */;
+            Value newDamage = a.GetDamage( DiceModeAverage, *this ) * attack->GetSkill().GetValue() /* times 1% */;
+            if( oldDamage > newDamage)
+                return;
+        }
+        
+        attack = &a;
+    });
+}
+
+
+bool Creature::Print( unsigned long indentLevel, Extent * __nullable where ) const
+{
+    __block bool overflow = false;
+    PrintExtent(where, &overflow, "%sCreature <%p>: %s \"%s\"\n", GetIndentString(indentLevel), this, GetSpecies().GetName(), GetName());
+    PrintExtent(where, &overflow, "%snext    <%p>:\n", GetIndentString(indentLevel+1), next.GetNext());
+    overflow |= false == context.Print(indentLevel+1, where);
+    PrintExtent(where, &overflow, "%sBest Attack:\n", GetIndentString(indentLevel+1));
+    if( NULL == attack)
+        PrintExtent(where, &overflow, "%sNULL\n", GetIndentString(indentLevel+2));
+    else
+        overflow |= false == attack->Print(indentLevel+2, where);
+
+    return ! overflow;
+}
+
