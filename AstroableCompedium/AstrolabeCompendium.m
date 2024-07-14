@@ -182,35 +182,38 @@ static NSObject * __nullable
         NSMutableDictionary *d = (NSMutableDictionary*) o;
         if( NO == [d isKindOfClass: NSMutableDictionary.class])
             d = AUTORELEASE( [d mutableCopy]);
-        
+
+        // Deal with the objects that are supposed to be there according to the externally identified template dictionary
         __block NSError * e = nil;
-        if( nil == templateDictionary)
+        [templateDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull templateObject, BOOL * _Nonnull stop)
         {
-            NSDictionary * childTemplateDictionary = d[kTemplateKey];
-            [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull original, BOOL * _Nonnull stop)
-            {
-                NSObject * o = CanonicalizeObject( original, childTemplateDictionary, key, &e);
-                if( o && o != original)
-                    d[key] = o;
-                RETAIN(e);
-            }];
-        }
-        else
+            if( KeyIsMetadata(key))
+                return;
+            
+            NSObject * original = d[key];
+            NSObject * o = original ? original : templateObject;
+            o = CanonicalizeObject( o, templateDictionary[key], key, &e);
+            if( o && o != original)
+                d[key] = o;
+            RETAIN(e);
+        }];
+
+        // Handle any other locally defined template dictionaries that allows for content with arbitrary keys but a fixed format.
+        NSDictionary * localTemplateDictionary = templateDictionary[kTemplateKey];
+        if( nil == localTemplateDictionary )
+            localTemplateDictionary = d[kTemplateKey];
+        [d enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull original, BOOL * _Nonnull stop)
         {
-            BUG there are sub dictionaries with named items in them of indeterminate name, and this
-                  approach here doesn't work for that. We need some naming convention for anyname
-            [templateDictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull templateObject, BOOL * _Nonnull stop)
-            {
-                if( [key isEqualToString: @"Attacks"])
-                    printf("foo");
-                NSObject * original = d[key];
-                NSObject * o = original || !KeyIsMetadata(key) ? original : templateObject;
-                o = CanonicalizeObject( o, templateDictionary[key], key, &e);
-                if( o && o != original)
-                    d[key] = o;
-                RETAIN(e);
-            }];
-        }
+            // skip stuff already handled by the template dictionary
+            if( templateDictionary[key] && ! KeyIsMetadata(key))
+                return;
+            
+            NSObject * o = CanonicalizeObject( original, localTemplateDictionary, key, &e);
+            if( o && o != original)
+                d[key] = o;
+            RETAIN(e);
+        }];
+
         if(e)
         {
             *error = e;
